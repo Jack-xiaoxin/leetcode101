@@ -23,4 +23,13 @@ public class BuyStock {
         if(buy != -1 && sell != -1) profit += prices[sell] - prices[buy];
         return profit;
     }
+
+    //当天买，当天还可以卖，所以只要今天比昨天高，就可以卖了
+    public int maxProfix2(int[] prices) {
+        int profit = 0;
+        for(int i = 1; i < prices.length; i++) {
+            profit += Math.max(0, prices[i] - prices[i-1]);
+        }
+        return profit;
+    }
 }
