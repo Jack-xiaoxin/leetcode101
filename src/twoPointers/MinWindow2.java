@@ -1,35 +1,39 @@
 package twoPointers;
 
-public class MinWindow {
+public class MinWindow2 {
 
     public static void main(String[] args) {
-        System.out.println(new MinWindow().minWindow("ADOBECODEBANC", "ABC"));
+        System.out.println(new MinWindow2().minWindow("ADOBECODEBANC", "ABC"));
     }
 
     public String minWindow(String s, String t) {
         int[] chars = new int[128];
         boolean[] flags = new boolean[128];
+
         for(int i = 0; i < t.length(); i++) {
             char ch = t.charAt(i);
             flags[ch] = true;
             chars[ch]++;
         }
-        int l = 0, cnt = 0, minL = 0, minSize = s.length()+1;
-        for(int r = 0; r < s.length(); r++) {
-            char ch = s.charAt(r);
+
+        int l = 0, minL = 0, cnt = 0, minSize = s.length() + 1;
+        for(int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
             if(flags[ch] && --chars[ch] >= 0) {
                 cnt++;
             }
             while(cnt == t.length()) {
-                if(r-l+1 < minSize) {
-                    minSize = r-l+1;
+                if(i-l+1 < minSize) {
+                    minSize = i-l+1;
                     minL = l;
                 }
                 char leftCh = s.charAt(l);
-                if(flags[leftCh] && ++chars[leftCh] > 0) cnt--;
+                if(flags[leftCh] && ++chars[leftCh] > 0) {
+                    cnt--;
+                }
                 l++;
             }
         }
-        return minSize > s.length() ? "" : s.substring(minL, minSize+minL);
+        return minSize > s.length() ? "" : s.substring(minL, minL+minSize);
     }
 }
