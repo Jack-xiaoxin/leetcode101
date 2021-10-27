@@ -43,7 +43,9 @@ public class PacificAtlantic {
         int[] X = {1, -1, 0, 0}, Y = {0, 0, 1, -1};
         for(int k = 0; k < X.length; k++) {
             int newX = i + X[k], newY = j + Y[k];
-            if(newX >= 0 && newX < heights.length && newY >= 0 && newY < heights[i].length && visited[newX][newY] == 0 && heights[i][j] <= heights[newX][newY]) {
+            if(newX >= 0 && newX < heights.length
+                    && newY >= 0 && newY < heights[i].length
+                    && visited[newX][newY] == 0 && heights[i][j] <= heights[newX][newY]) {
                 DFS(heights, visited, ocean, newX, newY);
             }
         }
