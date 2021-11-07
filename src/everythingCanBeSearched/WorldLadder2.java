@@ -1,4 +1,4 @@
-package EverythingCanBeSearched;
+package everythingCanBeSearched;
 
 import java.util.*;
 

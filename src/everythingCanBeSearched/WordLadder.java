@@ -1,6 +1,4 @@
-package EverythingCanBeSearched;
-
-import java.util.*;
+package everythingCanBeSearched;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
