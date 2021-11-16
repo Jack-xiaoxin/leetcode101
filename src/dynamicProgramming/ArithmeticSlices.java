@@ -1,4 +1,4 @@
-package everythingCanBeSearched;
+package dynamicProgramming;
 
 public class ArithmeticSlices {
 
